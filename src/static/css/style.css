@@ -266,6 +266,15 @@ html {
     height: calc(var(--full-page-height) - var(--info-bar-height));
 }
 
+.page-block {
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.page-block-inner {
+    padding: 0 1rem;
+}
+
 .section-head-line {
     position: relative;
     margin-bottom: 2rem;
@@ -319,6 +328,11 @@ html {
     position: absolute;
     top: .25rem;
     left: -.1rem;
+}
+
+.form-control {
+    border-top-right-radius: .25rem !important;
+    border-bottom-right-radius: .25rem !important;
 }
 /*
     7.1 Home Page
