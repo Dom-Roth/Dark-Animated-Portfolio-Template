@@ -68,13 +68,13 @@ var page_configuration = {
     List of all Section Pages, if you add a new page, add the id to this list.
     This makes sure the navigation handles it
 */
-page_list = ['home-tab', 'about-tab', 'portfolio-tab', 'resume-tab', 'blog-tab', 'contact-tab'];
+const page_list = ['home-tab', 'about-tab', 'portfolio-tab', 'resume-tab', 'blog-tab', 'contact-tab'];
 
 /*
     Dictionary of all Titles for the according pages.
     If you add a new section page, enter the corresponding title here.
 */
-page_titles = {
+const page_titles = {
     '#home-tab': 'Home',
     '#about-tab': 'About',
     '#portfolio-tab': 'Portfolio',
@@ -130,14 +130,14 @@ function setup_modal(return_to) {
             });
         }
         portfolio_modal.show();
-        if ($(this.data('preview-return-to')) != undefined) {
-            return_to =  $(this.data('preview-return-to'));
+        if ($(this).data('preview-return-to') != undefined) {
+            return_to =  $(this).data('preview-return-to');
         } else {
             return_to = 'portfolio-tab';
         }
         jump(return_to);
     });
-    var tooltip = new bootstrap.Tooltip($('.modal-visit-btn'), {});
+    //var tooltip = new bootstrap.Tooltip($('.modal-visit-btn'), {});
 }
 /* Page Setup End */
 
@@ -154,7 +154,7 @@ function setup_home_text_carousel() {
     owl.owlCarousel({
         loop: true,
         items: 1,
-        autoplay: true
+        autoPlay: true
     });
 }
 /* Home Page Functions End */
@@ -251,7 +251,7 @@ function handle_page_start() {
 
     // If page is opened with a # link it automatically navigates to the corresponding page
     if (document.location.href.includes('#')) {
-        navigate_to = document.location.href.split('#')[1];
+        const navigate_to = document.location.href.split('#')[1];
         // Call goto_page and set auto_hide_navigation to false.
         goto_page('#' + navigate_to, false);
     }
